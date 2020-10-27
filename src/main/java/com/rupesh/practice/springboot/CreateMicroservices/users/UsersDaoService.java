@@ -22,11 +22,11 @@ public class UsersDaoService {
 		users.add(new User(5, "Jack", new Date()));
 	}
 
-	public List<User> getAllUsers() {
+	public List<User> findAll() {
 		return users;
 	}
 
-	public User getUser(int id) {
+	public User findById(int id) {
 		for (User user : users) {
 			if (user.getId() == id)
 				return user;
@@ -34,7 +34,7 @@ public class UsersDaoService {
 		return null;
 	}
 
-	public User addUser(User user) {
+	public User save(User user) {
 		if (user.getId() == null) {
 			user.setId(++userCount);
 		}
@@ -42,7 +42,7 @@ public class UsersDaoService {
 		return user;
 	}
 
-	public User deleteUser(int id) {
+	public User deleteById(int id) {
 		Iterator<User> userIterator = users.iterator();
 
 		while (userIterator.hasNext()) {
